@@ -97,19 +97,21 @@ const Layout = () => {
   };
 
   const renderContent = () => {
-    if (location.pathname === '/charts') {
+    const path = location.hash.replace('#', '') || '/';  // 获取 hash 路径
+
+    if (path === '/charts') {
       return <DataVisualization />;
     }
     
-    if (location.pathname === '/knowledge') {
+    if (path === '/knowledge') {
       return <Knowledge />;
     }
     
-    if (location.pathname === '/calculator') {
+    if (path === '/calculator') {
       return <PurineCalculator />;
     }
     
-    if (location.pathname === '/datasource') {  // 添加新路由
+    if (path === '/datasource') {
       return <DataSource />;
     }
 
@@ -161,7 +163,7 @@ const Layout = () => {
       <StyledSider>
         <Menu
           mode="inline"
-          selectedKeys={[location.pathname]}
+          selectedKeys={[location.hash.replace('#', '') || '/']}
           style={{ height: '100%', paddingTop: '64px' }}
         >
           <Menu.Item key="/" icon={<HomeOutlined />} onClick={() => navigate('/')}>
