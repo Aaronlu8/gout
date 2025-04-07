@@ -1,3 +1,0 @@
-import { HashRouter as Router } from 'react-router-dom';
-
-// ... 其他代码 ...
