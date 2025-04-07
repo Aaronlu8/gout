@@ -1,6 +1,6 @@
 {
   "name": "purinecontrol-app",
-  "homepage": ".",
+  "homepage": "https://gout.vercel.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
