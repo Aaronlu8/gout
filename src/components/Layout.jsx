@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Layout as AntLayout, Row, Col, Input, Button, Menu } from 'antd';
+import { Layout as AntLayout, Row, Col, Menu } from 'antd';
 import { 
-  ArrowLeftOutlined, 
-  SearchOutlined,
   HomeOutlined,
   CalculatorOutlined,
   BarChartOutlined,
   BookOutlined,
-  AppstoreOutlined,
-  ReadOutlined,
-  InfoCircleOutlined  // 添加新图标
+  InfoCircleOutlined
 } from '@ant-design/icons';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import CategoryCard from './CategoryCard';
@@ -20,11 +16,11 @@ import { useFoods } from '../contexts/FoodContext';
 import DataVisualization from './DataVisualization';
 import Knowledge from './Knowledge';
 import PurineCalculator from './PurineCalculator';
-import DataSource from './DataSource';  // 导入新组件
-import Footer from './Footer';  // 导入Footer组件
+import DataSource from './DataSource';
+import Footer from './Footer';
 
-const { Header, Content, Sider } = AntLayout;
-const { Search } = Input;
+const { Header, Content } = AntLayout;  // 移除 Sider
+// 删除 Search 的定义，因为已经不需要了
 
 const StyledLayout = styled(AntLayout)`
   min-height: 100vh;
@@ -32,166 +28,142 @@ const StyledLayout = styled(AntLayout)`
 
 const StyledHeader = styled(Header)`
   background: linear-gradient(135deg, #f0f7ff, #e6f4ff);
-  color: #1677ff;
-  text-align: center;
   padding: 0;
-  height: 64px;
-  line-height: 64px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-`;
-
-const HeaderTitle = styled.h1`
-  color: #1677ff;
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  text-shadow: none;
+  height: 56px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 `;
 
 const StyledContent = styled(Content)`
   padding: 2rem;
   background: ${props => props.theme.colors.background};
+  margin-top: 56px;  // 添加上边距，防止内容被导航栏遮挡
 `;
 
-const SearchWrapper = styled.div`
-  max-width: 600px;
-  margin: 20px auto;
+const HeaderContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 `;
 
-const Title = styled.h1`
-  color: white;
+const HeaderTitle = styled.h1`
+  color: #1677ff;
   margin: 0;
+  font-size: 20px;  // 减小字体
+  font-weight: 600;
+  text-shadow: none;
 `;
 
-const BackButton = styled(Button)`
-  margin-bottom: 20px;
+const StyledMenu = styled(Menu)`
+  background: transparent;
+  border-bottom: none;
+  flex: 1;
+  justify-content: flex-end;
+  margin-left: 24px;
+  
+  .ant-menu-item {
+    padding: 0 16px;
+    margin: 0 4px;
+    height: 56px;
+    line-height: 56px;
+    
+    &:hover {
+      color: #1677ff;
+    }
+    
+    &.ant-menu-item-selected {
+      background: rgba(22, 119, 255, 0.1);
+    }
+  }
 `;
 
-const StyledSider = styled(Sider)`
-  background: white;
-`;
+// 删除这里的重复声明
+// const StyledContent = styled(Content)`
+//   padding: 2rem;
+//   background: ${props => props.theme.colors.background};
+// `;
+
+// 删除 StyledSider 组件定义
 
 const Layout = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [searchText, setSearchText] = useState('');
-  const { foods } = useFoods();
   const location = useLocation();
   const navigate = useNavigate();
+  const { foods } = useFoods();  // 添加 foods
 
-  const handleSearch = (value) => {
-    setSearchText(value);
-    setSelectedCategory('search');
-  };
-
-  const handleBack = () => {
-    setSelectedCategory(null);
-    setSearchText('');
-  };
-
-  const getFilteredFoods = () => {
-    if (!searchText) return [];
-    return foods.filter(food => 
-      food.name.toLowerCase().includes(searchText.toLowerCase()) ||
-      food.originalCategory.toLowerCase().includes(searchText.toLowerCase())
-    );
+  // 添加 getFoodsByCategory 函数
+  const getFoodsByCategory = (categoryId) => {
+    return foods.filter(food => food.category === categoryId);
   };
 
   const renderContent = () => {
-    const path = location.hash.replace('#', '') || '/';  // 获取 hash 路径
-
-    if (path === '/charts') {
-      return <DataVisualization />;
+    const categoryId = location.pathname.split('/category/')[1];
+    if (categoryId) {
+      return <FoodList category={categoryId} />;
     }
-    
-    if (path === '/knowledge') {
-      return <Knowledge />;
-    }
-    
-    if (path === '/calculator') {
-      return <PurineCalculator />;
-    }
-    
-    if (path === '/datasource') {
-      return <DataSource />;
-    }
-
     return (
       <>
-        <SearchWrapper>
-          <Search 
-            placeholder="搜索食品..." 
-            size="large" 
-            value={searchText}
-            onChange={e => setSearchText(e.target.value)}
-            onSearch={handleSearch}
-            enterButton
-          />
-        </SearchWrapper>
-        
-        {selectedCategory && (
-          <BackButton 
-            type="primary" 
-            icon={<ArrowLeftOutlined />}
-            onClick={handleBack}
-          >
-            返回分类列表
-          </BackButton>
-        )}
-
-        {!selectedCategory ? (
-          <Row gutter={[16, 16]}>
-            {Object.values(CATEGORIES).map(category => (
-              <Col xs={24} sm={12} md={8} lg={6} key={category.id}>
-                <div onClick={() => setSelectedCategory(category.id)}>
-                  <CategoryCard category={category} />
-                </div>
-              </Col>
-            ))}
-          </Row>
-        ) : (
-          <FoodList 
-            categoryId={selectedCategory} 
-            foods={selectedCategory === 'search' ? getFilteredFoods() : undefined}
-          />
-        )}
+        <Row gutter={[16, 16]}>
+          {Object.values(CATEGORIES).map(category => (
+            <Col xs={24} sm={12} md={8} lg={6} key={category.id}>
+              <CategoryCard 
+                category={category} 
+                foods={getFoodsByCategory(category.id)}
+                onClick={() => navigate(`/category/${category.id}`)} 
+              />
+            </Col>
+          ))}
+        </Row>
       </>
     );
   };
-
+  
+  // 修改 Layout 组件的 return 部分
   return (
     <StyledLayout>
-      <StyledSider>
-        <Menu
-          mode="inline"
-          selectedKeys={[location.hash.replace('#', '') || '/']}
-          style={{ height: '100%', paddingTop: '64px' }}
-        >
-          <Menu.Item key="/" icon={<HomeOutlined />} onClick={() => navigate('/')}>
-            食品分类
-          </Menu.Item>
-          <Menu.Item key="/charts" icon={<BarChartOutlined />} onClick={() => navigate('/charts')}>
-            数据统计
-          </Menu.Item>
-          <Menu.Item key="/calculator" icon={<CalculatorOutlined />} onClick={() => navigate('/calculator')}>
-            嘌呤计算器
-          </Menu.Item>
-          <Menu.Item key="/knowledge" icon={<BookOutlined />} onClick={() => navigate('/knowledge')}>
-            痛风知识
-          </Menu.Item>
-          <Menu.Item key="/datasource" icon={<InfoCircleOutlined />} onClick={() => navigate('/datasource')}>
-            数据来源
-          </Menu.Item>
-        </Menu>
-      </StyledSider>
-      <AntLayout>
-        <StyledHeader>
+      <StyledHeader>
+        <HeaderContent>
           <HeaderTitle>嘌呤管家</HeaderTitle>
-        </StyledHeader>
-        <StyledContent>
-          {renderContent()}
-        </StyledContent>
-        <Footer />  {/* 添加Footer组件 */}
-      </AntLayout>
+          <StyledMenu
+            mode="horizontal"
+            selectedKeys={[location.pathname]}
+          >
+            <Menu.Item key="/" icon={<HomeOutlined />} onClick={() => navigate('/')}>
+              食品分类
+            </Menu.Item>
+            <Menu.Item key="/charts" icon={<BarChartOutlined />} onClick={() => navigate('/charts')}>
+              数据统计
+            </Menu.Item>
+            <Menu.Item key="/calculator" icon={<CalculatorOutlined />} onClick={() => navigate('/calculator')}>
+              嘌呤计算器
+            </Menu.Item>
+            <Menu.Item key="/knowledge" icon={<BookOutlined />} onClick={() => navigate('/knowledge')}>
+              痛风知识
+            </Menu.Item>
+            <Menu.Item key="/datasource" icon={<InfoCircleOutlined />} onClick={() => navigate('/datasource')}>
+              数据来源
+            </Menu.Item>
+          </StyledMenu>
+        </HeaderContent>
+      </StyledHeader>
+      <StyledContent>
+        <Routes>
+          <Route path="/" element={renderContent()} />
+          <Route path="/category/:categoryId" element={<FoodList />} />
+          <Route path="/charts" element={<DataVisualization />} />
+          <Route path="/calculator" element={<PurineCalculator />} />
+          <Route path="/knowledge" element={<Knowledge />} />
+          <Route path="/datasource" element={<DataSource />} />
+        </Routes>
+      </StyledContent>
+      <Footer />
     </StyledLayout>
   );
 };

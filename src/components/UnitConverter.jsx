@@ -30,6 +30,7 @@ const units = {
   '大勺': { weight: 15, desc: '约15g/ml，标准汤勺容量' },
   '中勺': { weight: 10, desc: '约10g/ml，标准调羹容量' },
   '小勺': { weight: 5, desc: '约5g/ml，标准茶匙容量' }
+  '100ml': { weight: 100, desc: '100ml液体量' }
 };
 
 const UnitConverter = ({ purineContent }) => {

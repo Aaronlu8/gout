@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card } from 'antd';
+import { Card, List, Typography } from 'antd';
+import { useNavigate } from 'react-router-dom';
+
+const { Text } = Typography;
 
 const StyledCard = styled(Card)`
   border-radius: ${props => props.theme.borderRadius.large};
@@ -11,6 +14,10 @@ const StyledCard = styled(Card)`
   &:hover {
     transform: translateY(-5px);
     box-shadow: ${props => props.theme.shadows.medium};
+  }
+
+  .ant-card-body {
+    padding: 16px;
   }
 `;
 
@@ -27,9 +34,18 @@ const CategoryName = styled.h3`
   color: ${props => props.theme.colors.text};
 `;
 
-const CategoryCard = ({ category }) => {
+const StyledList = styled(List)`
+  .ant-list-item {
+    padding: 4px 0;
+    border-bottom: none;
+  }
+`;
+
+const CategoryCard = ({ category, foods = [], onClick }) => {
+  const navigate = useNavigate();
+
   return (
-    <StyledCard backgroundColor={category.color}>
+    <StyledCard backgroundColor={category.color} onClick={onClick}>
       <CategoryIcon>{category.icon}</CategoryIcon>
       <CategoryName>{category.name}</CategoryName>
     </StyledCard>

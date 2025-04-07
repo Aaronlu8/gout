@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Typography, Card, Table, Tag, Divider, Button } from 'antd';
+import { Typography, Card, Table, Tag, Divider, Button, Collapse } from 'antd';
 import { SOURCE_RELIABILITY } from '../data/sourceReliability';
-import { LinkOutlined } from '@ant-design/icons';
+import { LinkOutlined, DownOutlined } from '@ant-design/icons';
+import { FOODS_DATA } from '../data/foodData';
+import { CATEGORIES } from '../data/foodCategories';
 
 const { Title, Paragraph, Text } = Typography;
+const { Panel } = Collapse;
 
 const Container = styled.div`
   max-width: 1000px;
@@ -15,6 +18,29 @@ const StyledCard = styled(Card)`
   margin-bottom: 24px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const FoodListCard = styled(StyledCard)`
+  margin-top: 24px;
+`;
+
+const CategoryTitle = styled(Title)`
+  margin-top: 16px !important;
+`;
+
+const FoodItem = styled.span`
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+`;
+
+const WeightInfo = styled.span`
+  color: #1890ff;
+  font-weight: 500;
+  margin-left: 4px;
 `;
 
 const DataSource = () => {
@@ -74,6 +100,19 @@ const DataSource = () => {
     website: info.website || null,
   }));
 
+  // 按类别整理食品数据
+  const foodsByCategory = {};
+  
+  Object.values(CATEGORIES).forEach(category => {
+    foodsByCategory[category.id] = [];
+  });
+  
+  FOODS_DATA.forEach(food => {
+    if (foodsByCategory[food.category]) {
+      foodsByCategory[food.category].push(food);
+    }
+  });
+
   return (
     <Container>
       <Title level={2}>数据来源与可信度说明</Title>
@@ -117,6 +156,35 @@ const DataSource = () => {
           欢迎通过应用内的反馈功能告知我们。
         </Paragraph>
       </StyledCard>
+      
+      {/* 新增食品清单部分 */}
+      <FoodListCard>
+        <Title level={3}>食品分类清单</Title>
+        <Paragraph>
+          以下是本应用收录的所有食品，按类别分类。标注了重量的食品可以按个/只计量。
+        </Paragraph>
+        
+        <Collapse>
+          {Object.entries(foodsByCategory).map(([categoryId, foods]) => {
+            const category = Object.values(CATEGORIES).find(c => c.id === categoryId);
+            if (!category || foods.length === 0) return null;
+            
+            return (
+              <Panel 
+                header={`${category.name}（${foods.length}种）`} 
+                key={categoryId}
+              >
+                {foods.map((food, index) => (
+                  <FoodItem key={index}>
+                    {food.name}
+                    {food.weight && <WeightInfo>（{food.weight}）</WeightInfo>}
+                  </FoodItem>
+                ))}
+              </Panel>
+            );
+          })}
+        </Collapse>
+      </FoodListCard>
     </Container>
   );
 };

@@ -4,13 +4,15 @@ export const CATEGORIES = {
     id: 'staple_foods',
     name: '主食类',
     icon: '🍚',
-    color: '#FFE4B5'
+    color: '#FFE4B5',
+    subcategories: ['谷物类', '薯类及淀粉制品', '豆类及其制品']
   },
   VEGETABLES: {
     id: 'vegetables',
     name: '蔬菜类',
     icon: '🥬',
-    color: '#90EE90'
+    color: '#90EE90',
+    subcategories: ['叶菜类', '根茎类', '瓜果类', '菌菇类']
   },
   FRUITS: {
     id: 'fruits',

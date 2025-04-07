@@ -1,7 +1,6 @@
-import { FOODS } from '../data/foodData';  // 改为实际的数据文件名
-import { CATEGORIES } from '../data/foodCategories';
-
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { FOODS_DATA } from '../data/foodData';
+import { vegetablesData } from '../data/vegetablesData';
 
 export const FoodContext = createContext();
 
@@ -10,34 +9,16 @@ export const FoodProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchFoods = async () => {
-      try {
-        // 修改数据加载路径，使用正确的仓库名
-        const response = await fetch('/Purineassist/data/food_category.txt');
-        const text = await response.text();
-        
-        // 解析数据
-        const lines = text.split('\n').filter(line => line.trim() !== '');
-        const parsedFoods = lines.slice(1).map(line => {
-          const [category, name, purineContent, purineLevel, source] = line.split('\t');
-          return {
-            category,
-            name,
-            purineContent: parseFloat(purineContent) || 0,
-            purineLevel,
-            source
-          };
-        });
-        
-        setFoods(parsedFoods);
-      } catch (error) {
-        console.error('Error loading food data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchFoods();
+    try {
+      // 合并主食类和蔬菜类数据
+      const allFoods = [...FOODS_DATA, ...vegetablesData];
+      console.log('加载的食品数据:', allFoods);
+      setFoods(allFoods);
+      setLoading(false);
+    } catch (error) {
+      console.error('加载食品数据错误:', error);
+      setLoading(false);
+    }
   }, []);
 
   return (

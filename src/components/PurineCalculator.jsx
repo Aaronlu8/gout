@@ -34,9 +34,7 @@ const UTENSIL_CONVERSIONS = {
   '中勺': 15,
   '小勺': 5,
   '筷子夹': 30,
-  '小份': 100,
-  '中份': 200,
-  '大份': 300
+  '毫升': 100
 };
 
 const PurineCalculator = () => {
@@ -63,6 +61,14 @@ const PurineCalculator = () => {
     setTotalPurine(total);
   }, [selectedItems]);
 
+  useEffect(() => {
+    let total = 0;
+    selectedItems.forEach(item => {
+      total += item.purine; // 直接使用计算好的 purine 值
+    });
+    setTotalPurine(total);
+  }, [selectedItems]);
+
   // 根据选择的餐具更新食品量
   useEffect(() => {
     if (selectedUtensil) {
@@ -70,11 +76,48 @@ const PurineCalculator = () => {
     }
   }, [selectedUtensil]);
 
+  // 添加液体食品判断函数（与FoodList.jsx保持一致）
+  const isLiquidFood = (foodName) => {
+    const exceptions = ['茶树菇', '茶叶蛋', '木奶果', '香水柠檬', '蛤蜊汤包', '水母', '奶酪', '奶粉（全脂）', '奶油蛋糕', '酸奶冰淇淋', '奶酪（切达）', '奶酪（帕玛森）', '奶酪（马苏里拉）', '奶酪棒', '奶盖', '植物奶酪', '植物奶油', '奶酪球', '酱油膏', '料酒膏'];
+    if (exceptions.includes(foodName)) return false;
+  
+    const liquidBeverages = ['威士忌', '伏特加', '白兰地', '卡布奇诺', '可乐', '雪碧', '橙汁', '苹果汁', '葡萄汁'];
+    const liquidSeasonings = ['醋', '抽', '酱油', '糖浆', '味醂', '蚝油'];
+    const liquidFoods = ['汤', '粥', '奶', '酒', '饮料', '水', '茶', '咖啡', '豆浆'];
+  
+    return [...liquidFoods, ...liquidSeasonings, ...liquidBeverages].some(liquid => foodName.includes(liquid));
+  };
+  
+  // 添加液体密度映射（与FoodList.jsx保持一致）
+  const LIQUID_DENSITY = {
+    '豆浆': 1.03, '牛奶': 1.03, '啤酒': 1.01, '红酒': 0.99, '咖啡': 1.00, 
+    '茶': 1.00, '汤': 1.00, '粥': 1.05, '醋': 1.02, '生抽': 1.15, 
+    '老抽': 1.18, '糖浆': 1.33, '味醂': 1.10, '蚝油': 1.25, '威士忌': 0.98,
+    '伏特加': 0.95, '白兰地': 0.97, '卡布奇诺': 1.02, '可乐': 1.04, '雪碧': 1.03,
+    '橙汁': 1.05, '苹果汁': 1.05, '葡萄汁': 1.06, 'default': 1.00
+  };
+  
+  // 获取液体食品密度
+  const getLiquidDensity = (foodName) => {
+    for (const [key, value] of Object.entries(LIQUID_DENSITY)) {
+      if (foodName.includes(key)) return value;
+    }
+    return LIQUID_DENSITY.default;
+  };
+  
+  // 修改handleAddFood函数，添加液体食品处理逻辑
   const handleAddFood = () => {
     if (!currentFood) return;
     
     const food = foods.find(f => f.name === currentFood);
     if (!food) return;
+    
+    // 计算实际重量（如果是液体食品）
+    let actualAmount = currentAmount;
+    if (isLiquidFood(food.name)) {
+      const density = getLiquidDensity(food.name);
+      actualAmount = currentAmount * density; // 将ml转换为g
+    }
     
     setSelectedItems([
       ...selectedItems,
@@ -82,8 +125,9 @@ const PurineCalculator = () => {
         id: Date.now(),
         food,
         amount: currentAmount,
-        purine: (food.purineContent * currentAmount) / 100,
-        utensil: selectedUtensil || `${currentAmount}g`
+        actualWeight: actualAmount, // 存储实际重量
+        purine: (food.purine * actualAmount) / 100, // 使用实际重量计算嘌呤
+        utensil: selectedUtensil || `${currentAmount}${isLiquidFood(food.name) ? 'ml' : 'g'}`
       }
     ]);
     
@@ -123,7 +167,12 @@ const PurineCalculator = () => {
     
     const food = foods.find(f => f.name === currentFood);
     if (food) {
-      const purine = (food.purineContent * currentAmount) / 100;
+      let actualAmount = currentAmount;
+      if (isLiquidFood(food.name)) {
+        const density = getLiquidDensity(food.name);
+        actualAmount = currentAmount * density;
+      }
+      const purine = (food.purine * actualAmount) / 100;
       setCurrentPurine(purine);
     }
   }, [currentFood, currentAmount, foods]);
@@ -194,7 +243,7 @@ const PurineCalculator = () => {
                 }
                 options={filteredFoods.map(food => ({
                   value: food.name,
-                  label: `${food.name} (${food.purineContent}mg/100g)`
+                  label: food.name
                 }))}
               />
             </Space>
@@ -212,7 +261,7 @@ const PurineCalculator = () => {
               }
               options={foods.map(food => ({
                 value: food.name,
-                label: `${food.name} (${food.purineContent}mg/100g)`
+                label: food.name  // 移除嘌呤含量信息
               }))}
             />
           </TabPane>
@@ -227,7 +276,7 @@ const PurineCalculator = () => {
             allowClear
             options={Object.entries(UTENSIL_CONVERSIONS).map(([name, value]) => ({
               value: name,
-              label: `${name} (约 ${value}g)`
+              label: name === '毫升' ? `${name} (约 ${value}ml)` : `${name} (约 ${value}g)`
             }))}
           />
           
@@ -237,7 +286,7 @@ const PurineCalculator = () => {
             max={1000}
             value={currentAmount}
             onChange={setCurrentAmount}
-            addonAfter="g"
+            addonAfter="g/ml"
           />
           
           <Button 
@@ -253,7 +302,7 @@ const PurineCalculator = () => {
         {currentFood && (
           <div style={{ marginTop: 8 }}>
             <Text>
-              当前选择: <Text strong>{currentAmount}g</Text> 的 
+              当前选择: <Text strong>{currentAmount}{isLiquidFood(foods.find(f => f.name === currentFood)?.name) ? 'ml' : 'g'}</Text> 的 
               <Text strong>{foods.find(f => f.name === currentFood)?.name}</Text>，
               嘌呤含量约 <Text strong type={currentPurine > 50 ? "danger" : "success"}>
                 {currentPurine.toFixed(1)}mg
@@ -297,10 +346,10 @@ const PurineCalculator = () => {
                 ]}
               >
                 <List.Item.Meta
-                  title={item.food.name}
-                  description={`${item.utensil} (${item.amount}g, ${item.food.purineContent}mg/100g)`}
+                  title={item.food?.name || '未知食品'}
+                  description={`${item.utensil || ''} (${item.amount || 0}${isLiquidFood(item.food?.name) ? 'ml' : 'g'}, ${item.food?.purine || 0}mg/${isLiquidFood(item.food?.name) ? '100ml' : '100g'})`}
                 />
-                <div>{item.purine.toFixed(1)}mg</div>
+                <div>{(item.purine || 0).toFixed(1)}mg</div>
               </List.Item>
             )}
           />
@@ -354,8 +403,8 @@ const PurineCalculator = () => {
                 ]}
               >
                 <List.Item.Meta
-                  title={meal.name}
-                  description={`${meal.items.length}种食品，总嘌呤含量: ${meal.totalPurine.toFixed(1)}mg`}
+                  title={meal.name || '未命名膳食'}
+                  description={`${meal.items?.length || 0}种食品，总嘌呤含量: ${(meal.totalPurine || 0).toFixed(1)}mg`}
                 />
               </List.Item>
             )}

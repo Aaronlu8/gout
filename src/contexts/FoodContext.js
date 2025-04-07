@@ -1,40 +1,31 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { parseRawData } from '../utils/dataParser';
+import { FOODS_DATA } from '../data/foodData';
+import { CATEGORIES } from '../data/foodCategories';
 
 const FoodContext = createContext();
 
 export const FoodProvider = ({ children }) => {
   const [foods, setFoods] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadFoodData = async () => {
-      try {
-        const response = await fetch('/data/food_category.txt');
-        const data = await response.text();
-        const parsedFoods = parseRawData(data);
-        setFoods(parsedFoods);
-      } catch (error) {
-        console.error('Error loading food data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadFoodData();
+    // 初始化食品数据
+    setFoods(FOODS_DATA);
   }, []);
 
+  const getFoodsByCategory = (categoryId) => {
+    const category = Object.values(CATEGORIES).find(cat => cat.id === categoryId);
+    if (!category) return [];
+    
+    return foods.filter(food => 
+      category.subcategories?.includes(food.category)
+    );
+  };
+
   return (
-    <FoodContext.Provider value={{ foods, loading }}>
+    <FoodContext.Provider value={{ foods, getFoodsByCategory }}>
       {children}
     </FoodContext.Provider>
   );
 };
 
-export const useFoods = () => {
-  const context = useContext(FoodContext);
-  if (!context) {
-    throw new Error('useFoods must be used within a FoodProvider');
-  }
-  return context;
-};
+export const useFoods = () => useContext(FoodContext);
