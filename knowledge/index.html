@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>痛风知识库 - 认识、预防与治疗</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <header class="bg-gradient-to-r from-purple-200 via-pink-200 to-blue-200 py-16 px-4 md:px-8 shadow-sm">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="inline-block p-3 rounded-full bg-white bg-opacity-70 backdrop-blur-sm mb-5">
+                <svg class="w-16 h-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 8C18.7 8 8 18.7 8 32C8 45.3 18.7 56 32 56C45.3 56 56 45.3 56 32C56 18.7 45.3 8 32 8Z" fill="#FFC2D1"/>
+                    <path d="M42 28C44.2091 28 46 26.2091 46 24C46 21.7909 44.2091 20 42 20C39.7909 20 38 21.7909 38 24C38 26.2091 39.7909 28 42 28Z" fill="#FF8FAB"/>
+                    <path d="M22 28C24.2091 28 26 26.2091 26 24C26 21.7909 24.2091 20 22 20C19.7909 20 18 21.7909 18 24C18 26.2091 19.7909 28 22 28Z" fill="#FF8FAB"/>
+                    <path d="M38 36H26C25.4 36 25 36.4 25 37C25 40.9 28.1 44 32 44C35.9 44 39 40.9 39 37C39 36.4 38.6 36 38 36Z" fill="#FF8FAB"/>
+                    <path d="M32 4C16.5 4 4 16.5 4 32C4 47.5 16.5 60 32 60C47.5 60 60 47.5 60 32C60 16.5 47.5 4 32 4ZM32 56C18.7 56 8 45.3 8 32C8 18.7 18.7 8 32 8C45.3 8 56 18.7 56 32C56 45.3 45.3 56 32 56Z" fill="#FF4778"/>
+                </svg>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">痛风全解析</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">了解痛风的症状、病因、诊断、治疗和预防，掌握正确的生活方式，远离疼痛困扰。</p>
+        </div>
+    </header>
+
+    <nav class="sticky top-0 bg-white shadow-md z-50 py-3 px-4">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="font-bold text-xl text-pink-500">痛风知识库</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#intro" class="nav-link">简介</a>
+                <a href="#causes" class="nav-link">病因</a>
+                <a href="#symptoms" class="nav-link">症状</a>
+                <a href="#diagnosis" class="nav-link">诊断</a>
+                <a href="#treatment" class="nav-link">治疗</a>
+                <a href="#prevention" class="nav-link">预防</a>
+                <a href="#knowledge" class="nav-link">趣味知识</a>
+            </div>
+            <button id="menuToggle" class="md:hidden flex items-center">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden py-3 px-4 bg-white border-t">
+            <div class="flex flex-col space-y-3">
+                <a href="#intro" class="nav-link">简介</a>
+                <a href="#causes" class="nav-link">病因</a>
+                <a href="#symptoms" class="nav-link">症状</a>
+                <a href="#diagnosis" class="nav-link">诊断</a>
+                <a href="#treatment" class="nav-link">治疗</a>
+                <a href="#prevention" class="nav-link">预防</a>
+                <a href="#knowledge" class="nav-link">趣味知识</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <section id="intro" class="mb-16">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <h2 class="section-title">什么是痛风？</h2>
+                    <p class="mb-4">痛风是一种常见的炎症性关节疾病，由于体内尿酸过多，尿酸结晶在关节中积聚引起炎症和剧烈疼痛。这是最常见的炎性关节炎之一，主要影响中老年男性和绝经后女性。</p>
+                    <p>痛风发作通常突然而至，常在夜间发生，关节会出现剧烈疼痛、发红、肿胀和触痛。大脚趾关节是最常受影响的部位，但也可能影响足部、踝部、膝盖、手和手腕的其他关节。</p>
+                </div>
+                <div class="md:w-1/2 p-4 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100">
+                    <img src="https://www.shutterstock.com/image-vector/gout-disease-joints-tissues-caused-260nw-2539153769.jpg" alt="痛风示意图" class="rounded-lg shadow-md mx-auto">
+                    <p class="text-center text-gray-600 mt-2 text-sm">痛风常影响足部和手部关节，尤其是大脚趾</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="causes" class="mb-16">
+            <h2 class="section-title">病因与风险因素</h2>
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-2/3">
+                    <h3 class="text-xl font-semibold mb-3 text-pink-600">主要病因</h3>
+                    <p class="mb-4">痛风是由于体内尿酸水平升高（高尿酸血症）导致的。当体内产生过多尿酸或肾脏排泄尿酸能力下降时，尿酸会在血液中积累，并最终形成尖锐的针状结晶体，沉积在关节和周围组织中，引发炎症反应和疼痛。</p>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-lg font-semibold mb-2 text-blue-700">尿酸来源</h3>
+                        <p>尿酸是人体分解嘌呤时产生的废物。嘌呤存在于人体内以及某些食物和饮料中，约90%的痛风患者是由于尿酸排泄障碍导致。</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                            <h4 class="font-medium text-gray-800 mb-2">内源性因素</h4>
+                            <ul class="list-disc pl-5 text-gray-700">
+                                <li>遗传因素</li>
+                                <li>尿酸生成过多</li>
+                                <li>尿酸排泄减少</li>
+                                <li>代谢综合征</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                            <h4 class="font-medium text-gray-800 mb-2">外源性因素</h4>
+                            <ul class="list-disc pl-5 text-gray-700">
+                                <li>高嘌呤饮食</li>
+                                <li>酒精摄入（尤其是啤酒）</li>
+                                <li>果糖摄入过多</li>
+                                <li>某些药物（如利尿剂）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/3">
+                    <div class="bg-pink-50 p-5 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-3 text-pink-600">主要风险因素</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center bg-pink-200 rounded-full w-6 h-6 mr-2 mt-0.5 flex-shrink-0">
+                                    <i data-lucide="user" class="w-4 h-4 text-pink-700"></i>
+                                </span>
+                                <span><strong>性别和年龄：</strong>男性比女性更易患病，女性绝经后风险增加</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center bg-pink-200 rounded-full w-6 h-6 mr-2 mt-0.5 flex-shrink-0">
+                                    <i data-lucide="heart" class="w-4 h-4 text-pink-700"></i>
+                                </span>
+                                <span><strong>肥胖：</strong>导致身体产生更多尿酸，肾脏更难清除尿酸</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center bg-pink-200 rounded-full w-6 h-6 mr-2 mt-0.5 flex-shrink-0">
+                                    <i data-lucide="glass" class="w-4 h-4 text-pink-700"></i>
+                                </span>
+                                <span><strong>饮食习惯：</strong>高嘌呤食物、酒精（尤其是啤酒）和含糖饮料</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center bg-pink-200 rounded-full w-6 h-6 mr-2 mt-0.5 flex-shrink-0">
+                                    <i data-lucide="pill" class="w-4 h-4 text-pink-700"></i>
+                                </span>
+                                <span><strong>某些疾病：</strong>高血压、糖尿病、肾病等</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center bg-pink-200 rounded-full w-6 h-6 mr-2 mt-0.5 flex-shrink-0">
+                                    <i data-lucide="dna" class="w-4 h-4 text-pink-700"></i>
+                                </span>
+                                <span><strong>家族史：</strong>有痛风家族史的人更容易患病</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="symptoms" class="mb-16">
+            <h2 class="section-title">痛风的症状</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex items-start mb-6">
+                        <div class="bg-blue-200 p-3 rounded-full mr-4 flex-shrink-0">
+                            <i data-lucide="alert-circle" class="w-6 h-6 text-blue-700"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">突发性关节疼痛</h3>
+                            <p>痛风最常见的症状是关节的突发性剧烈疼痛，疼痛在发作后的最初4至12小时内达到高峰。通常从大脚趾关节开始，但也可能影响其他关节。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start mb-6">
+                        <div class="bg-blue-200 p-3 rounded-full mr-4 flex-shrink-0">
+                            <i data-lucide="flame" class="w-6 h-6 text-blue-700"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">炎症和发红</h3>
+                            <p>受影响的关节会出现发红、肿胀、发热和极度敏感，甚至轻微的接触或压力也会引起疼痛。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-blue-200 p-3 rounded-full mr-4 flex-shrink-0">
+                            <i data-lucide="clock" class="w-6 h-6 text-blue-700"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">持续不适</h3>
+                            <p>最剧烈的疼痛过后，关节不适感可能持续数天至数周。随着时间推移，发作的持续时间可能更长，影响更多关节。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gradient-to-br from-purple-100 to-blue-100 p-6 rounded-xl mb-6">
+                        <img src="https://thumbs.dreamstime.com/b/gout-medical-illustration-symptoms-47778752.jpg" alt="痛风症状图解" class="w-full rounded-lg mb-4">
+                        <p class="text-center text-gray-700 text-sm">痛风症状常见于足部关节，尤其是大脚趾</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <div class="bg-pink-200 p-2 rounded-full mr-2 flex-shrink-0">
+                                <i data-lucide="move" class="w-4 h-4 text-pink-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">活动受限</h4>
+                                <p class="text-sm">关节活动度下降，行走困难</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-pink-200 p-2 rounded-full mr-2 flex-shrink-0">
+                                <i data-lucide="moon" class="w-4 h-4 text-pink-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">夜间发作</h4>
+                                <p class="text-sm">痛风常在夜间突然发作</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-pink-200 p-2 rounded-full mr-2 flex-shrink-0">
+                                <i data-lucide="layers" class="w-4 h-4 text-pink-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">痛风石</h4>
+                                <p class="text-sm">慢性痛风可形成尿酸结晶堆积</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-pink-200 p-2 rounded-full mr-2 flex-shrink-0">
+                                <i data-lucide="repeat" class="w-4 h-4 text-pink-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">反复发作</h4>
+                                <p class="text-sm">若不治疗，症状会反复出现</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diagnosis" class="mb-16">
+            <h2 class="section-title">痛风的诊断</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <p class="mb-4">痛风的诊断通常基于患者的症状、体格检查和实验室检查。医生会详细了解症状、医疗史和家族史，然后进行一系列检查来确认诊断。</p>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-lg font-semibold mb-2 text-blue-700">诊断方法</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center bg-blue-200 rounded-full w-5 h-5 mr-2 mt-0.5 text-xs text-blue-800 font-bold">1</span>
+                                <span><strong>关节液检测：</strong>从受影响关节抽取液体，检查尿酸盐结晶，这是诊断痛风最确定的方法</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center bg-blue-200 rounded-full w-5 h-5 mr-2 mt-0.5 text-xs text-blue-800 font-bold">2</span>
+                                <span><strong>血液检测：</strong>测量血液中的尿酸水平，但需注意高尿酸不一定意味着痛风</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="inline-flex items-center justify-center bg-blue-200 rounded-full w-5 h-5 mr-2 mt-0.5 text-xs text-blue-800 font-bold">3</span>
+                                <span><strong>影像学检查：</strong>X线、超声波或双能计算机断层扫描(DECT)可帮助检测尿酸盐结晶</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gradient-to-br from-pink-100 to-purple-100 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-pink-700">需与其他疾病鉴别</h3>
+                        <p class="mb-4">痛风的症状可能与其他关节疾病相似，包括：</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h4 class="font-semibold mb-1 text-purple-600">假性痛风</h4>
+                                <p class="text-sm">由钙焦磷酸二水合物结晶引起的关节炎</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h4 class="font-semibold mb-1 text-purple-600">类风湿关节炎</h4>
+                                <p class="text-sm">自身免疫性疾病，导致关节炎症</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h4 class="font-semibold mb-1 text-purple-600">感染性关节炎</h4>
+                                <p class="text-sm">由细菌或病毒感染引起的关节炎</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <h4 class="font-semibold mb-1 text-purple-600">骨关节炎</h4>
+                                <p class="text-sm">关节软骨退化引起的关节疼痛</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-600 italic">
+                            准确诊断对于选择正确的治疗方法至关重要
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="treatment" class="mb-16">
+            <h2 class="section-title">痛风的治疗</h2>
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-7/12">
+                    <p class="mb-6">痛风的治疗目标是缓解急性发作的症状，预防未来发作，并降低血液中的尿酸水平以防止并发症。治疗方法通常包括药物治疗和生活方式调整。</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-red-100 p-2 rounded-lg mr-3">
+                                    <i data-lucide="flame" class="w-5 h-5 text-red-600"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">急性发作期治疗</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2">•</span>
+                                    <span><strong>非甾体抗炎药(NSAIDs)：</strong>如布洛芬、萘普生等</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2">•</span>
+                                    <span><strong>秋水仙碱：</strong>缓解痛风急性发作的特效药</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2">•</span>
+                                    <span><strong>皮质类固醇：</strong>如泼尼松，控制炎症和疼痛</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2">•</span>
+                                    <span><strong>关节休息：</strong>抬高患肢，避免活动</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-blue-100 p-2 rounded-lg mr-3">
+                                    <i data-lucide="shield" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">慢性期治疗</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>别嘌醇：</strong>降低尿酸生成的药物</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>非布司他：</strong>另一种降低尿酸生成的药物</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>促尿酸排泄药：</strong>如丙磺舒，促进尿酸排泄</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>碱化尿液：</strong>使用碳酸氢钠，促进尿酸溶解</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-yellow-800">治疗注意事项</h3>
+                                <div class="mt-2 text-sm text-yellow-700">
+                                    <ul class="list-disc pl-5 space-y-1">
+                                        <li>痛风是无菌性炎症，抗生素治疗无效</li>
+                                        <li>降尿酸治疗目标：血尿酸控制在360umol/L以下</li>
+                                        <li>服用降尿酸药物应从小剂量开始，逐渐加量</li>
+                                        <li>首次使用别嘌醇前建议进行HLA-B5801基因检测</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-5/12">
+                    <div class="bg-gradient-to-br from-green-100 to-teal-100 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-teal-700">饮食管理</h3>
+                        
+                        <div class="bg-white bg-opacity-80 rounded-lg p-4 mb-4">
+                            <h4 class="font-semibold text-teal-700 mb-2">应避免的食物</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-red-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="x" class="w-3 h-3 text-red-600"></i>
+                                    </span>
+                                    <span class="text-sm">动物内脏</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-red-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="x" class="w-3 h-3 text-red-600"></i>
+                                    </span>
+                                    <span class="text-sm">贝类海鲜</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-red-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="x" class="w-3 h-3 text-red-600"></i>
+                                    </span>
+                                    <span class="text-sm">啤酒</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-red-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="x" class="w-3 h-3 text-red-600"></i>
+                                    </span>
+                                    <span class="text-sm">高糖饮料</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-red-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="x" class="w-3 h-3 text-red-600"></i>
+                                    </span>
+                                    <span class="text-sm">大骨汤</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-red-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="x" class="w-3 h-3 text-red-600"></i>
+                                    </span>
+                                    <span class="text-sm">红肉</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-80 rounded-lg p-4">
+                            <h4 class="font-semibold text-teal-700 mb-2">推荐食物</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-green-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="check" class="w-3 h-3 text-green-600"></i>
+                                    </span>
+                                    <span class="text-sm">新鲜蔬果</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-green-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="check" class="w-3 h-3 text-green-600"></i>
+                                    </span>
+                                    <span class="text-sm">豆腐</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-green-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="check" class="w-3 h-3 text-green-600"></i>
+                                    </span>
+                                    <span class="text-sm">低脂奶制品</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-green-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="check" class="w-3 h-3 text-green-600"></i>
+                                    </span>
+                                    <span class="text-sm">全谷物</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-green-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="check" class="w-3 h-3 text-green-600"></i>
+                                    </span>
+                                    <span class="text-sm">樱桃</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="inline-flex items-center justify-center bg-green-100 rounded-full w-6 h-6 mr-2 flex-shrink-0">
+                                        <i data-lucide="check" class="w-3 h-3 text-green-600"></i>
+                                    </span>
+                                    <span class="text-sm">咖啡</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 flex items-center justify-center bg-teal-50 py-3 px-4 rounded-lg">
+                            <i data-lucide="droplet" class="w-5 h-5 text-teal-600 mr-2"></i>
+                            <span class="font-medium text-teal-800">每天饮水2000-3000ml促进尿酸排泄</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <img src="https://m.media-amazon.com/images/I/618mM7OHUlL._AC_UF894,1000_QL80_.jpg" alt="痛风饮食指南" class="w-full rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prevention" class="mb-16">
+            <h2 class="section-title">痛风的预防</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <p class="mb-6">预防痛风主要依靠健康的生活方式和饮食习惯，控制尿酸水平是关键。以下是一些有效的预防措施：</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-blue-200 p-2 rounded-lg mr-3">
+                                    <i data-lucide="heart" class="w-5 h-5 text-blue-700"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-blue-800">控制体重</h3>
+                            </div>
+                            <p>肥胖会增加尿酸水平，减重有助于降低痛风风险。通过健康饮食和适度运动达到并保持健康体重。</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-green-200 p-2 rounded-lg mr-3">
+                                    <i data-lucide="utensils" class="w-5 h-5 text-green-700"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-green-800">合理饮食</h3>
+                            </div>
+                            <p>减少高嘌呤食物摄入，多吃蔬果、全谷物和低脂奶制品。避免或限制动物内脏、贝类海鲜、红肉等高嘌呤食物。</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-purple-200 p-2 rounded-lg mr-3">
+                                    <i data-lucide="glass-water" class="w-5 h-5 text-purple-700"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-purple-800">饮水充足</h3>
+                            </div>
+                            <p>每天饮用足够的水（2000-3000毫升）有助于稀释尿液中的尿酸，促进尿酸排泄，降低痛风发作风险。</p>
+                        </div>
+                        
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-pink-200 p-2 rounded-lg mr-3">
+                                    <i data-lucide="wine" class="w-5 h-5 text-pink-700"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-pink-800">限制酒精</h3>
+                            </div>
+                            <p>减少或避免酒精摄入，特别是啤酒，因为酒精会增加尿酸生成并减少排泄。痛风发作期间应完全避免饮酒。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gradient-to-br from-yellow-100 to-orange-100 p-6 rounded-xl mb-6">
+                        <h3 class="text-xl font-semibold mb-4 text-orange-700">生活方式调整</h3>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-orange-200 p-2 rounded-full mr-2">
+                                        <i data-lucide="dumbbell" class="w-4 h-4 text-orange-700"></i>
+                                    </div>
+                                    <h4 class="font-medium">适度运动</h4>
+                                </div>
+                                <p class="text-sm">选择有氧运动如快走、游泳等，避免剧烈运动</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-orange-200 p-2 rounded-full mr-2">
+                                        <i data-lucide="bed" class="w-4 h-4 text-orange-700"></i>
+                                    </div>
+                                    <h4 class="font-medium">充足休息</h4>
+                                </div>
+                                <p class="text-sm">避免过度劳累，保持规律作息</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-orange-200 p-2 rounded-full mr-2">
+                                        <i data-lucide="pill" class="w-4 h-4 text-orange-700"></i>
+                                    </div>
+                                    <h4 class="font-medium">定期检查</h4>
+                                </div>
+                                <p class="text-sm">定期监测血尿酸水平，控制相关疾病</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-orange-200 p-2 rounded-full mr-2">
+                                        <i data-lucide="coffee" class="w-4 h-4 text-orange-700"></i>
+                                    </div>
+                                    <h4 class="font-medium">适量咖啡</h4>
+                                </div>
+                                <p class="text-sm">适量喝咖啡可能有助于降低痛风风险</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-800">预防痛风的食物指导</h3>
+                        
+                        <div class="flex items-center justify-between border-b border-gray-200 py-3">
+                            <span class="font-medium">樱桃</span>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-gray-200 rounded-full"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between border-b border-gray-200 py-3">
+                            <span class="font-medium">咖啡</span>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-gray-200 rounded-full"></span>
+                                <span class="w-4 h-4 bg-gray-200 rounded-full"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between border-b border-gray-200 py-3">
+                            <span class="font-medium">绿叶蔬菜</span>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between border-b border-gray-200 py-3">
+                            <span class="font-medium">低脂乳制品</span>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-gray-200 rounded-full"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between py-3">
+                            <span class="font-medium">维生素C食物</span>
+                            <div class="flex space-x-1">
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="text-xs text-gray-500 mt-2">
+                            推荐程度: 5个点为最高推荐
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="knowledge" class="mb-16">
+            <h2 class="section-title">痛风的趣味知识</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-700">关于痛风的有趣事实</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="flex">
+                                <div class="flex-shrink-0 bg-purple-200 rounded-full p-2">
+                                    <i data-lucide="crown" class="w-5 h-5 text-purple-700"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold mb-1">帝王病</h4>
+                                    <p>痛风又被称为"帝王病"，历史上不少达官显贵如亚历山大大帝、忽必烈等都患有痛风。过去享有特权的人有更多机会接触美食、过度饮食，所以更容易患上痛风。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <div class="flex">
+                                <div class="flex-shrink-0 bg-pink-200 rounded-full p-2">
+                                    <i data-lucide="user" class="w-5 h-5 text-pink-700"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold mb-1">性别差异</h4>
+                                    <p>痛风的男女比例为20:1，这是因为女性雌激素可以促进尿酸的排泄，并抑制尿酸在关节中的结晶。女性在绝经后痛风发病率会上升，但仍低于男性。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="flex">
+                                <div class="flex-shrink-0 bg-blue-200 rounded-full p-2">
+                                    <i data-lucide="zap" class="w-5 h-5 text-blue-700"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold mb-1">迅猛的疼痛</h4>
+                                    <p>痛风的疼痛是非常特殊的，它来得快，来得强烈。患者常常在睡眠中突然被疼痛惊醒，疼痛程度可以达到难以忍受的程度，甚至不能触碰。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="flex">
+                                <div class="flex-shrink-0 bg-green-200 rounded-full p-2">
+                                    <i data-lucide="activity" class="w-5 h-5 text-green-700"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold mb-1">尿酸波动</h4>
+                                    <p>痛风发作不光与血尿酸升高有关，还与尿酸显著波动有关。临床上，血尿酸水平降得越快，痛风复发的风险越高，因此降尿酸药物一定要从小剂量起始，缓慢加量。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <div class="flex">
+                                <div class="flex-shrink-0 bg-yellow-200 rounded-full p-2">
+                                    <i data-lucide="lightbulb" class="w-5 h-5 text-yellow-700"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold mb-1">正常尿酸也痛风</h4>
+                                    <p>在痛风急性发作期，大约1/3的患者血尿酸水平在正常范围。因此，不能仅凭一次正常的血尿酸水平就排除痛风的可能性。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-teal-700">关于嘌呤的有趣知识</h3>
+                    
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                        <div class="bg-gradient-to-r from-teal-500 to-cyan-500 p-4">
+                            <h4 class="text-white font-semibold">嘌呤小知识</h4>
+                        </div>
+                        
+                        <div class="p-5 space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-teal-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                    <i data-lucide="flask-conical" class="w-4 h-4 text-teal-700"></i>
+                                </div>
+                                <p><strong>嘌呤转化：</strong>嘌呤在体内氧化后会变成尿酸。高尿酸血症和痛风是由于嘌呤代谢障碍引起的。</p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-teal-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                    <i data-lucide="coffee" class="w-4 h-4 text-teal-700"></i>
+                                </div>
+                                <p><strong>咖啡与茶：</strong>咖啡可以促进尿酸排泄，适量饮用有益。茶叶对尿酸生成的影响不大，痛风患者可以饮用。</p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-teal-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                    <i data-lucide="cherry" class="w-4 h-4 text-teal-700"></i>
+                                </div>
+                                <p><strong>樱桃作用：</strong>研究表明，樱桃含有抗氧化物质和抗炎化合物，可以降低尿酸水平和缓解痛风炎症。</p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-teal-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                    <i data-lucide="egg" class="w-4 h-4 text-teal-700"></i>
+                                </div>
+                                <p><strong>豆腐真相：</strong>豆腐经过大量水的稀释、过滤研磨，嘌呤含量大大降低，属于低嘌呤食物。研究表明，豆腐不会增高血尿酸，反而对痛风有一定的保护作用。</p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-teal-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                    <i data-lucide="glass" class="w-4 h-4 text-teal-700"></i>
+                                </div>
+                                <p><strong>酒精影响：</strong>白酒比啤酒更容易诱发痛风。白酒酒精含量高，会诱导中性粒细胞趋化，降低尿酸排除。而啤酒除了酒精成分外，还含有大量嘌呤。</p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-teal-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                    <i data-lucide="candy" class="w-4 h-4 text-teal-700"></i>
+                                </div>
+                                <p><strong>甜饮料：</strong>大部分甜饮料都含有大量果糖，果糖代谢产物就是尿酸，饮用这类饮料会增加痛风风险。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-teal-50 p-4 border-t border-teal-100">
+                            <p class="text-teal-800 text-sm"><strong>趣味小知识：</strong>传统观念认为痛风饮食应以嘌呤含量高低来论，但研究表明植物和动物饮食对血尿酸的影响不同。蔬菜无论嘌呤含量高低，痛风患者均可放心食用。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <img src="https://thumbs.dreamstime.com/b/man-gout-cartoon-having-meal-eats-meat-sausage-cheese-drinks-beer-wine-then-gets-pain-his-foot-49525103.jpg" alt="痛风趣味知识" class="rounded-lg shadow-md w-full">
+                        <p class="text-center text-gray-600 mt-2 text-sm">痛风常与不良的饮食习惯相关</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold text-pink-400 mb-2">痛风知识库</h2>
+                    <p class="text-gray-400">全面了解痛风，科学预防与治疗</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#intro" class="hover:text-pink-400 transition-colors">简介</a>
+                    <a href="#causes" class="hover:text-pink-400 transition-colors">病因</a>
+                    <a href="#symptoms" class="hover:text-pink-400 transition-colors">症状</a>
+                    <a href="#diagnosis" class="hover:text-pink-400 transition-colors">诊断</a>
+                    <a href="#treatment" class="hover:text-pink-400 transition-colors">治疗</a>
+                    <a href="#prevention" class="hover:text-pink-400 transition-colors">预防</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">本网站内容仅供参考，不构成医疗建议。如有健康问题，请咨询专业医生。</p>
+                <p class="text-gray-400 text-sm">Built with <a href="https://flowith.net" target="_blank" class="text-pink-400 hover:underline">Flowith Oracle</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener("wheel", (e)=> {
+            const isPinching = e.ctrlKey
+            if(isPinching) e.preventDefault()
+        }, { passive: false })
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
