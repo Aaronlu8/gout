@@ -1,6 +1,6 @@
 {
   "name": "purinecontrol-app",
-  "homepage": "https://aaronlu8.github.io/gout",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,6 +27,7 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "deploy:gitee": "npm run build && cd build && git init && git add . && git commit -m 'deploy' && git push -f git@gitee.com:luuaaron/gout.git master:pages",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
