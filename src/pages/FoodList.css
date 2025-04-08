@@ -1,0 +1,25 @@
+@media screen and (max-width: 768px) {
+  .category-card {
+    margin: 8px !important;
+    padding: 16px !important;
+    height: auto !important;
+  }
+
+  .category-icon {
+    font-size: 24px !important;
+    margin-bottom: 8px;
+  }
+
+  .category-title {
+    font-size: 16px !important;
+  }
+
+  /* 调整卡片布局 */
+  .ant-row {
+    margin: 0 -8px !important;
+  }
+
+  .ant-col {
+    padding: 0 8px !important;
+  }
+}

@@ -1,0 +1,346 @@
+/* 移动端全局样式 */
+@media screen and (max-width: 768px) {
+  /* 头部导航样式 */
+  .ant-layout-header {
+    padding: 0 12px !important;
+    height: auto !important;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* 标题样式优化 */
+  @media screen and (max-width: 768px) {
+    .app-title {
+      display: flex;
+      flex-direction: row !important;
+      align-items: center;
+      font-size: 20px !important;
+      padding: 0 12px;
+    }
+  }
+
+  /* 导航菜单样式 */
+  .ant-menu {
+    border: none !important;
+    line-height: 40px !important;
+  }
+
+  .ant-menu-item {
+    padding: 0 12px !important;
+    margin: 0 2px !important;
+  }
+
+  /* 内容区域样式 */
+  .ant-layout-content {
+    padding: 12px !important;
+    min-height: calc(100vh - 64px) !important;
+  }
+
+  /* 统计页面样式 */
+  .statistics-title {
+    font-size: 20px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .statistics-card {
+    margin-bottom: 12px !important;
+  }
+
+  /* 食品列表样式 */
+  .food-card {
+    margin-bottom: 12px !important;
+  }
+
+  /* 痛风知识页面样式 */
+  .knowledge-content {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    /* 导航栏布局优化 */
+    .ant-layout-header {
+      flex-direction: row !important;
+      padding: 0 8px !important;
+      height: 64px !important;
+      justify-content: space-between;
+    }
+  
+    /* 标题样式修复 */
+    .app-title {
+      display: inline-block !important;
+      white-space: nowrap !important;
+      font-size: 16px !important;
+      margin-right: 12px !important;
+    }
+  
+    /* 导航菜单优化 */
+    .ant-menu {
+      flex: 1;
+      display: flex !important;
+      justify-content: flex-end;
+    }
+  
+    .ant-menu-item {
+      padding: 0 8px !important;
+      font-size: 14px !important;
+    }
+  
+    .ant-menu-horizontal {
+      line-height: 64px !important;
+      border: none !important;
+    }
+  }
+
+  /* 数据统计页面优化 */
+  .statistics-container {
+    padding: 12px !important;
+  }
+
+  .statistics-container h2 {
+    font-size: 16px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .ant-statistic {
+    margin-bottom: 16px !important;
+  }
+
+  .ant-statistic-title {
+    font-size: 13px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .ant-statistic-content-value {
+    font-size: 16px !important;
+  }
+
+  .ant-statistic-content-suffix {
+    font-size: 12px !important;
+  }
+
+  /* 图表容器适配 */
+  .chart-container {
+    margin: 12px 0 !important;
+    padding: 8px !important;
+  }
+}
+
+/* 移动端全局样式 */
+@media screen and (max-width: 768px) {
+  /* 导航栏布局 */
+  .ant-layout-header {
+    padding: 0 !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    background-color: #fff !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    white-space: nowrap !important;
+  }
+
+  .ant-layout-header::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* 标题样式 */
+  .app-title {
+    font-size: 16px !important;
+    white-space: nowrap !important;
+    color: #1890ff !important;
+    font-weight: bold !important;
+    margin: 0 16px 0 12px !important;
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+  }
+
+  /* 导航菜单样式 */
+  .ant-menu {
+    display: inline-flex !important;
+    white-space: nowrap !important;
+    border: none !important;
+    line-height: 56px !important;
+    background: transparent !important;
+    min-width: max-content !important;
+  }
+
+  .ant-menu-horizontal {
+    border: none !important;
+    line-height: 56px !important;
+  }
+
+  /* 导航菜单项样式 */
+  .ant-menu-item {
+    padding: 0 16px !important;
+    margin: 0 4px !important;
+    font-size: 14px !important;
+    height: 56px !important;
+    line-height: 56px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 内容区域样式 */
+  .ant-layout-content {
+    padding: 8px !important;
+    min-height: calc(100vh - 56px) !important;
+  }
+
+  /* 统计页面样式 */
+  .statistics-title {
+    font-size: 18px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .statistics-card {
+    margin-bottom: 12px !important;
+  }
+
+  /* 食品列表样式 */
+  .food-card {
+    margin-bottom: 12px !important;
+  }
+
+  /* 痛风知识页面样式 */
+  .knowledge-content {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* 数据统计页面优化 */
+  .statistics-container {
+    padding: 12px !important;
+  }
+
+  .statistics-container h2 {
+    font-size: 16px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .ant-statistic {
+    margin-bottom: 16px !important;
+  }
+
+  .ant-statistic-title {
+    font-size: 13px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .ant-statistic-content-value {
+    font-size: 16px !important;
+  }
+
+  .ant-statistic-content-suffix {
+    font-size: 12px !important;
+  }
+
+  /* 图表容器适配 */
+  .chart-container {
+    margin: 12px 0 !important;
+    padding: 8px !important;
+  }
+
+  /* 食品分类卡片样式 */
+  .category-card {
+    margin: 8px 0 !important;
+    padding: 16px !important;
+  }
+
+  /* 嘌呤计算器页面样式优化 */
+  .ant-input-number {
+    min-width: 80px !important;
+    width: auto !important;
+  }
+
+  .ant-input-number-input {
+    text-align: center !important;
+  }
+
+  .ant-input-number-group-wrapper {
+    width: auto !important;
+    min-width: 120px !important;
+  }
+
+  .ant-input-number-group-addon {
+    min-width: 40px !important;
+    padding: 0 8px !important;
+  }
+
+  /* 数据来源页面样式优化 */
+  .datasource-container {
+    padding: 16px !important;
+  }
+
+  .datasource-title {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    margin-bottom: 16px !important;
+    text-align: center !important;
+  }
+
+  .datasource-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-bottom: 20px !important;
+  }
+
+  .datasource-table th,
+  .datasource-table td {
+    padding: 10px !important;
+    text-align: left !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+  }
+
+  .datasource-table th {
+    font-weight: bold !important;
+    background-color: #f5f5f5 !important;
+  }
+
+  .datasource-reliability {
+    display: inline-block !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+  }
+
+  .reliability-high {
+    background-color: #f6ffed !important;
+    border: 1px solid #b7eb8f !important;
+    color: #52c41a !important;
+  }
+
+  .reliability-medium {
+    background-color: #fffbe6 !important;
+    border: 1px solid #ffe58f !important;
+    color: #faad14 !important;
+  }
+
+  .reliability-low {
+    background-color: #fff2f0 !important;
+    border: 1px solid #ffccc7 !important;
+    color: #ff4d4f !important;
+  }
+
+  .datasource-link {
+    color: #1890ff !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .datasource-link:hover {
+    text-decoration: underline !important;
+  }
+
+  .datasource-description {
+    line-height: 1.6 !important;
+    margin-bottom: 16px !important;
+  }
+}

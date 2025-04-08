@@ -12,12 +12,30 @@ const { Panel } = Collapse;
 const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 16px;
+  
+  @media (max-width: 768px) {
+    padding: 0 12px;
+  }
 `;
 
 const StyledCard = styled(Card)`
   margin-bottom: 24px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  .ant-card-body {
+    @media (max-width: 768px) {
+      padding: 16px 12px;
+    }
+  }
+  
+  .ant-typography {
+    @media (max-width: 768px) {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
 `;
 
 const FoodListCard = styled(StyledCard)`
@@ -26,21 +44,57 @@ const FoodListCard = styled(StyledCard)`
 
 const CategoryTitle = styled(Title)`
   margin-top: 16px !important;
+  
+  @media (max-width: 768px) {
+    font-size: 18px !important;
+  }
 `;
 
 const FoodItem = styled.span`
   display: inline-block;
-  margin-right: 16px;
+  margin-right: 12px;
   margin-bottom: 8px;
-  padding: 4px 8px;
+  padding: 6px 10px;
   background-color: #f5f5f5;
   border-radius: 4px;
+  font-size: 14px;
+  
+  @media (max-width: 768px) {
+    margin-right: 8px;
+    padding: 4px 8px;
+    font-size: 13px;
+  }
 `;
 
 const WeightInfo = styled.span`
   color: #1890ff;
   font-weight: 500;
   margin-left: 4px;
+  
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+const StyledTable = styled(Table)`
+  @media (max-width: 768px) {
+    .ant-table {
+      font-size: 13px;
+    }
+    
+    .ant-table-thead > tr > th,
+    .ant-table-tbody > tr > td {
+      padding: 8px 4px;
+      white-space: normal;
+      word-break: break-word;
+    }
+    
+    .ant-tag {
+      margin: 2px 0;
+      padding: 0 4px;
+      font-size: 12px;
+    }
+  }
 `;
 
 const DataSource = () => {

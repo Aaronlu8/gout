@@ -1,6 +1,6 @@
 {
   "name": "purinecontrol-app",
-  "homepage": "/",
+  "homepage": "https://aaronlu8.github.io/gout",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,14 +28,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "deploy:gitee": "npm run build && cd build && git init && git add . && git commit -m 'deploy' && git push -f git@gitee.com:luuaaron/gout.git master:pages",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "deploy:tcb": "tcb hosting deploy build -e cloud1-1gbq6erde56d6d94"
   },
   "browserslist": {
     "production": [
@@ -48,12 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/runtime": "^7.27.0",
-    "autoprefixer": "^10.4.21",
-    "gh-pages": "^6.3.0",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.17"
   }
 }

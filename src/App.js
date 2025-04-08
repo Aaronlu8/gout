@@ -1,3 +1,4 @@
+import './styles/mobile.css';
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';  // 改用 HashRouter
 import { ConfigProvider } from 'antd';
