@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/gout/static/css/main.8dc7af86.css",
-    "main.js": "/gout/static/js/main.c8118110.js",
+    "main.css": "/gout/static/css/main.06b71560.css",
+    "main.js": "/gout/static/js/main.1485e027.js",
     "static/js/206.8b0f2722.chunk.js": "/gout/static/js/206.8b0f2722.chunk.js",
     "index.html": "/gout/index.html"
   },
   "entrypoints": [
-    "static/css/main.8dc7af86.css",
-    "static/js/main.c8118110.js"
+    "static/css/main.06b71560.css",
+    "static/js/main.1485e027.js"
   ]
 }
